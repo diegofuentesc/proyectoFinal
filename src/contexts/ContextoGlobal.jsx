@@ -34,7 +34,7 @@ export const ContextoGlobalProvider = (props) => {
   }
 
   const getAutos = async () => {
-      const res =  await fetch(`http://localhost:3000/autos.json`);
+      const res =  await fetch(`/autos.json`);
       const data = await res.json(); 
       setAutos(data);
      
