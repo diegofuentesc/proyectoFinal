@@ -64,7 +64,7 @@ const Nuevo = () => {
       </ListGroup>
     </Col>
     <Col md={9} className='publicadoGaleria'>
-        <h3 className='tituloNuevos'>Autos Usados</h3>
+        <h3 className='tituloNuevos'>Autos Nuevos</h3>
         <Container className="galeria">
         <Row md={4}>
         {publicacionesUsuario.map((auto) => {
