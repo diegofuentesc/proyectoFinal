@@ -41,6 +41,7 @@ const Detalle = () => {
       
 
       const props = autoDetalle;
+      const pesoChileno = autoDetalle.precio.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' });
 
     //   const autoDetalle = autos.filter((a) => a.id === id)
 
@@ -87,7 +88,7 @@ const Detalle = () => {
                                         <li>Kilometraje:{autoDetalle.kilometraje}</li>
                                         <li>Dueños:{autoDetalle.duenos}</li>
                                         <li>Transmision:{autoDetalle.transmision}</li>
-                                        <li>Precio:${autoDetalle.precio}</li>
+                                        <li>Precio:${pesoChileno}</li>
                                         
 
                                     </ul>
