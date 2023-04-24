@@ -36,7 +36,7 @@ console.log(auto);
 
 
   const manejarBotonEliminar = () => {
-    if (`${usuario.email}` === auto.mail) {
+    if (`${usuario.nombre} ${usuario.apellido}` === auto.publicitado_por) {
       // Si el usuario conectado es el mismo que el usuario del auto, mostramos el botón de eliminar
     
       return (
@@ -46,7 +46,7 @@ console.log(auto);
           <Button className='btnEliminarPublicacion' variant="danger" onClick={() => eliminarAuto(auto.id)}><BiTrash /></Button>
         </>
       );
-    } else if (`${usuario.email}` !== auto.mail && `${usuario.conectado}` === 'true') {
+    } else if (`${usuario.nombre} ${usuario.apellido}` !== auto.publicitado_por && `${usuario.conectado}` === 'true') {
       // Si el usuario conectado no es el mismo que el usuario del auto, mostramos corazon y detalle
       return (
         <>
@@ -101,7 +101,7 @@ console.log(auto);
               <li>Kilometraje:{auto.kilometraje}</li>
               <li>Dueños:{auto.duenos}</li>
               <li>Transmision:{auto.transmision}</li>
-              <li>Precio:${pesoChileno}</li>
+              <li>Precio:{pesoChileno}</li>
               <li>Combustible:{auto.combustible}</li>
             </ul>
             <ul>
