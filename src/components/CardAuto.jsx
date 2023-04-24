@@ -11,12 +11,11 @@ import { BiTrash } from 'react-icons/bi';
 
 function CardAuto({ fav, auto }) {
 
-  const navigate = useNavigate();
+ const navigate = useNavigate();
 
-  const { usuario, eliminarAuto, autos, setAutos, AlertaFavoritos, AlertaQuitarFavoritos } = useContext(ContextoGlobal);
-  const usuarioConectado = usuario.conectado !== 'null';
+  const { usuario, eliminarAuto, autos, setAutos, AlertaFavoritos, AlertaQuitarFavoritos} = useContext(ContextoGlobal);
+  
 
-  console.log(usuarioConectado);
 
   const setFavorito = (id) => {
     const autoClick = autos.findIndex((f) => f.id === id);
@@ -31,11 +30,13 @@ function CardAuto({ fav, auto }) {
 
 
 
+console.log(auto);
 
 
   const manejarBotonEliminar = () => {
-    if (`${usuario.nombre} ${usuario.apellido}` === auto.publicitado_por) {
+    if (`${usuario.id}` === auto.id) {
       // Si el usuario conectado es el mismo que el usuario del auto, mostramos el botón de eliminar
+    
       return (
         <>
           <Button className='btnDetallePublicacion' onClick={() => verDetalle()}> <AiOutlineEye /></Button>
@@ -43,7 +44,7 @@ function CardAuto({ fav, auto }) {
           <Button className='btnEliminarPublicacion' variant="danger" onClick={() => eliminarAuto(auto.id)}><BiTrash /></Button>
         </>
       );
-    } else if (`${usuario.nombre} ${usuario.apellido}` !== auto.publicitado_por && usuarioConectado) {
+    } else if (`${usuario.id}` !== auto.id && `${usuario.conectado}` === 'true') {
       // Si el usuario conectado no es el mismo que el usuario del auto, mostramos corazon y detalle
       return (
         <>
@@ -61,15 +62,10 @@ function CardAuto({ fav, auto }) {
           )}
         </>
       );
-    } else if (!usuarioConectado) {
-      return (
-        <>
-          <Button className='btnDetalle' onClick={() => verDetalle()}>Detalle</Button>
-        </>
-      );
-    } else {
+    } 
+     else {
       // Si ninguna de las condiciones anteriores es verdadera mostramos
-      return <Button className='btnDetalle' onClick={() => verDetalle()}>Detalle</Button>;
+      return <Button className='btnDetalle' onClick={() => verDetalle()}><AiOutlineEye /></Button>;
     }
   };
 
@@ -84,6 +80,8 @@ function CardAuto({ fav, auto }) {
   const editarPublicacion = () => {
     navigate(`/editarPublicacion/${auto.id}`)
   }
+
+
 
 
 
