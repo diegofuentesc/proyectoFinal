@@ -11,11 +11,11 @@ import { BiTrash } from 'react-icons/bi';
 
 function CardAuto({ fav, auto }) {
 
- const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const { usuario, eliminarAuto, autos, setAutos, AlertaFavoritos, AlertaQuitarFavoritos} = useContext(ContextoGlobal);
- 
- const pesoChileno = auto.precio.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' });
+
+  const pesoChileno = auto.precio.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' });
   
 
 
@@ -82,8 +82,6 @@ console.log(auto);
   const editarPublicacion = () => {
     navigate(`/editarPublicacion/${auto.id}`)
   }
-
-
 
 
 
