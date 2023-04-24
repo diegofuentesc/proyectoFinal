@@ -14,6 +14,8 @@ function CardAuto({ fav, auto }) {
  const navigate = useNavigate();
 
   const { usuario, eliminarAuto, autos, setAutos, AlertaFavoritos, AlertaQuitarFavoritos} = useContext(ContextoGlobal);
+ 
+ const pesoChileno = auto.precio.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' });
   
 
 
@@ -101,7 +103,7 @@ console.log(auto);
               <li>Kilometraje:{auto.kilometraje}</li>
               <li>Dueños:{auto.duenos}</li>
               <li>Transmision:{auto.transmision}</li>
-              <li>Precio:${auto.precio}</li>
+              <li>Precio:${pesoChileno}</li>
               <li>Combustible:{auto.combustible}</li>
             </ul>
             <ul>
